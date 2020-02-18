@@ -1,0 +1,29 @@
+Enter list of all Databases here:
+<br><br>
+<textarea id="input_text" rows="20" cols="80"></textarea>
+<br><br>
+<input type="button" value="Generate & Copy" id="generate_copy">
+<br><br>
+<textarea id="output" style="display:none; margin: 0px 1241px 0px 0px; width: 661px; height: 234px;" >
+</textarea>
+
+<script>
+var blackList = ",information_schema,aathi_test,mysql,performance_schema,sys,";
+var output = "";
+document.getElementById("generate_copy").onclick = function(){
+	console.log("asdsas")
+	var inp = document.getElementById("input_text").value;
+	inp = inp.replace(/\|\ /g, "");
+	inp = inp.split("|");
+	for( var i=0; i< inp.length-1; i++){
+		if(blackList.indexOf("," + inp[i].trim() + ",") == -1){
+			output += " drop database " + inp[i].trim() + ";";
+		}
+	}
+	document.getElementById("output").innerHTML = output;
+	document.getElementById("output").style.display = "block";
+	document.getElementById("output").select();
+	document.execCommand('copy');
+}
+
+</script>
