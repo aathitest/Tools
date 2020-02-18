@@ -1,2 +1,2 @@
-# tools
-tools for day to day activities
+# Tools
+[Drop Database In Mysql](https://aathitest.github.io/tools/drop_database.html)
